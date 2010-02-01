@@ -29,9 +29,9 @@ module TestStartupAndShutdown
       mysuite.instance_eval { @__startup_blocks = these_startup_blocks }
       mysuite.instance_eval { @__shutdown_blocks = these_shutdown_blocks }
       def mysuite.run(*args)
-        @__startup_blocks.each { |block| block.call }
+        (@__startup_blocks || []).each { |block| block.call }
         super
-        @__shutdown_blocks.each { |block| block.call }
+        (@__shutdown_blocks || []).each { |block| block.call }
       end
       mysuite
     end

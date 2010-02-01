@@ -36,12 +36,20 @@ class TestStartupExternalTest < Test::Unit::TestCase
   end
 end
 
+class TestStartupWithoutShutdown < Test::Unit::TestCase
+  startup { 1 + 1 }
+  def test_should_not_fail_without_a_shutdown_block
+    assert true # this testcase will explode to demonstrate failure
+  end
+end
+
 class TestStartupSuite < Test::Unit::TestSuite
   # taking advantage of the fact that the tests run in the order they're added here.
   def self.suite
     result = self.new(self.class.name)
     result << TestStartupTest.suite
     result << TestStartupExternalTest.suite
+    result << TestStartupWithoutShutdown.suite
     return result
   end
 end
