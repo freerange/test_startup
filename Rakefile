@@ -20,7 +20,7 @@ spec = Gem::Specification.new do |s|
   
   # Change these as appropriate
   s.name              = "test_startup"
-  s.version           = "0.1.0"
+  s.version           = "0.1.1"
   s.summary           = "Adds Ruby 1.9-style startup and shutdown mechanisms to test/unit (or shoulda)"
   s.author            = "James Adam"
   s.email             = "james@lazyatom.com"
